@@ -1,0 +1,143 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #0056b3;
+    color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+h1, h2, h3 {
+    color: #0056b3;
+}
+
+#menu-principal {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+#menu-principal button {
+    padding: 10px 15px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#menu-principal button:hover {
+    background-color: #003d82;
+}
+
+#contenido-dinamico {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    min-height: 300px;
+}
+
+.lista-vehiculos, .lista-carrito {
+    list-style-type: none;
+    padding: 0;
+}
+
+.lista-vehiculos li, .lista-carrito li {
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: #f4f4f4;
+    border-radius: 3px;
+}
+
+.total {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #0056b3;
+}
+
+.financiacion {
+    font-weight: bold;
+    color: #28a745;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 500px;
+}
+
+form label {
+    font-weight: bold;
+}
+
+form select, form button {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+form button {
+    background-color: #0056b3;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+form button:hover {
+    background-color: #003d82;
+}
+
+.mensaje {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+.mensaje.info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+}
+
+.mensaje.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.mensaje.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.resumen-compra {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.resumen-compra button {
+    padding: 10px 15px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#btn-confirmar-compra {
+    background-color: #28a745;
+    color: white;
+}
+
+#btn-cancelar-compra {
+    background-color: #dc3545;
+    color: white;
+}
