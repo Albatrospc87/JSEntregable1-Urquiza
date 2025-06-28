@@ -13,11 +13,11 @@ const elementos = {
 function mostrarCatalogoEnDOM() {
     const catalogo = mostrarCatalogo();
     let html = '<h2>Catálogo Ford 2025</h2><ul class="lista-vehiculos">';
-    
+
     catalogo.forEach(auto => {
         html += `<li>${auto.texto}</li>`;
     });
-    
+
     html += '</ul>';
     elementos.contenidoDinamico.innerHTML = html;
 }
@@ -31,26 +31,26 @@ function mostrarFormularioCotizar() {
             <select id="select-vehiculo" required>
                 <option value="">-- Seleccione --</option>
     `;
-    
+
     catalogo.forEach(auto => {
         html += `<option value="${auto.id}">${auto.texto}</option>`;
     });
-    
+
     html += `
             </select>
             <button type="submit">Agregar al Carrito</button>
         </form>
     `;
-    
+
     elementos.contenidoDinamico.innerHTML = html;
-    
+
     // Manejar el envío del formulario
     document.getElementById('form-cotizar').addEventListener('submit', (e) => {
         e.preventDefault();
         const select = document.getElementById('select-vehiculo');
         const resultado = agregarAlCarrito(select.value);
-        
-        if(resultado.success) {
+
+        if (resultado.success) {
             mostrarMensaje(`${resultado.vehiculo.modelo} agregado al carrito`);
         } else {
             mostrarMensaje("Selección inválida", "error");
@@ -60,12 +60,12 @@ function mostrarFormularioCotizar() {
 
 function mostrarFormularioFinanciacion() {
     const resumen = obtenerResumenCarrito();
-    
-    if(resumen.vacio) {
+
+    if (resumen.vacio) {
         mostrarMensaje("Primero agregue vehículos al carrito", "error");
         return;
     }
-    
+
     const html = `
         <h2>Simular Financiación</h2>
         <form id="form-financiacion">
@@ -81,22 +81,22 @@ function mostrarFormularioFinanciacion() {
         </form>
         <div id="resultado-financiacion"></div>
     `;
-    
+
     elementos.contenidoDinamico.innerHTML = html;
-    
+
     // Manejar el envío del formulario
     document.getElementById('form-financiacion').addEventListener('submit', (e) => {
         e.preventDefault();
         const select = document.getElementById('select-meses');
         const resultado = simularFinanciacion(select.value);
-        
-        if(resultado.error) {
+
+        if (resultado.error) {
             mostrarMensaje(resultado.error, "error");
         } else {
             document.getElementById('resultado-financiacion').innerHTML = `
                 <h3>Resultado de la financiación</h3>
-                <p>Total financiado: $${resultado.total.toLocaleString('es-AR', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</p>
-                <p>Cuota mensual: $${resultado.cuota.toLocaleString('es-AR', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</p>
+                <p>Total financiado: $${resultado.total.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+                <p>Cuota mensual: $${resultado.cuota.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
                 <p>Plazo: ${resultado.meses} meses</p>
             `;
         }
@@ -105,48 +105,48 @@ function mostrarFormularioFinanciacion() {
 
 function mostrarCarritoEnDOM() {
     const resumen = obtenerResumenCarrito();
-    
-    if(resumen.vacio) {
+
+    if (resumen.vacio) {
         elementos.contenidoDinamico.innerHTML = '<p class="mensaje">Carrito vacío</p>';
         return;
     }
-    
+
     let html = '<h2>Tu Carrito</h2><ul class="lista-carrito">';
-    
+
     resumen.items.forEach(item => {
         html += `<li>${item.modelo} - $${item.precio.toLocaleString('es-AR')}</li>`;
     });
-    
+
     html += `</ul>
         <p class="total">Total: $${resumen.total.toLocaleString('es-AR')}</p>
     `;
-    
-    if(resumen.financiacion > 0) {
-        html += `<p class="financiacion">Financiación total: $${resumen.financiacion.toLocaleString('es-AR', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</p>`;
+
+    if (resumen.financiacion > 0) {
+        html += `<p class="financiacion">Financiación total: $${resumen.financiacion.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>`;
     }
-    
+
     elementos.contenidoDinamico.innerHTML = html;
 }
 
 function mostrarConfirmacionCompra() {
     const resumen = obtenerResumenCarrito();
-    
-    if(resumen.vacio) {
+
+    if (resumen.vacio) {
         mostrarMensaje("No hay vehículos en el carrito", "error");
         return;
     }
-    
+
     const html = `
         <h2>Confirmar Compra</h2>
         <div class="resumen-compra">
             <h3>Resumen de tu compra:</h3>
             <ul>
     `;
-    
+
     resumen.items.forEach(item => {
         html += `<li>${item.modelo} - $${item.precio.toLocaleString('es-AR')}</li>`;
     });
-    
+
     html += `
             </ul>
             <p class="total">Total: $${resumen.total.toLocaleString('es-AR')}</p>
@@ -154,20 +154,20 @@ function mostrarConfirmacionCompra() {
             <button id="btn-cancelar-compra">Cancelar</button>
         </div>
     `;
-    
+
     elementos.contenidoDinamico.innerHTML = html;
-    
+
     // Manejar eventos de los botones
     document.getElementById('btn-confirmar-compra').addEventListener('click', () => {
         const resultado = finalizarCompra();
-        if(resultado.success) {
+        if (resultado.success) {
             mostrarMensaje("¡Compra realizada con éxito! Un asesor se contactará con usted", "success");
             mostrarCarritoEnDOM();
         } else {
             mostrarMensaje(resultado.message, "error");
         }
     });
-    
+
     document.getElementById('btn-cancelar-compra').addEventListener('click', () => {
         mostrarCarritoEnDOM();
     });
@@ -177,9 +177,9 @@ function mostrarMensaje(mensaje, tipo = "info") {
     const divMensaje = document.createElement('div');
     divMensaje.className = `mensaje ${tipo}`;
     divMensaje.textContent = mensaje;
-    
+
     elementos.contenidoDinamico.prepend(divMensaje);
-    
+
     // Eliminar el mensaje después de 3 segundos
     setTimeout(() => {
         divMensaje.remove();

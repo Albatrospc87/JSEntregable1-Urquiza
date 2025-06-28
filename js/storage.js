@@ -21,4 +21,5 @@ function cargarDatos(key) {
 
 function limpiarDatos(key) {
     localStorage.removeItem(key);
+    
 }

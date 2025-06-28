@@ -20,8 +20,8 @@ function mostrarCatalogo() {
 
 function agregarAlCarrito(idVehiculo) {
     const vehiculo = vehiculos.find(v => v.id === parseInt(idVehiculo));
-    
-    if(vehiculo) {
+
+    if (vehiculo) {
         carrito.push(vehiculo);
         guardarCarrito();
         return { success: true, vehiculo };
@@ -31,16 +31,16 @@ function agregarAlCarrito(idVehiculo) {
 
 function simularFinanciacion(meses) {
     const mesesValidos = [12, 24, 36, 48];
-    
-    if(!mesesValidos.includes(parseInt(meses))) {
+
+    if (!mesesValidos.includes(parseInt(meses))) {
         return { error: "Plazo no válido. Use 12, 24, 36 o 48 meses" };
     }
-    
+
     const total = carrito.reduce((sum, auto) => sum + auto.precio, 0);
     const interes = meses * 0.02; // 2% por mes
     financiacion = total * (1 + interes);
     const cuota = financiacion / meses;
-    
+
     return {
         total: financiacion,
         cuota: cuota,
@@ -50,17 +50,17 @@ function simularFinanciacion(meses) {
 }
 
 function obtenerResumenCarrito() {
-    if(carrito.length === 0) {
+    if (carrito.length === 0) {
         return { vacio: true };
     }
-    
+
     const items = carrito.map(auto => ({
         modelo: auto.modelo,
         precio: auto.precio
     }));
-    
+
     const total = carrito.reduce((sum, auto) => sum + auto.precio, 0);
-    
+
     return {
         items,
         total,
@@ -70,22 +70,22 @@ function obtenerResumenCarrito() {
 }
 
 function finalizarCompra() {
-    if(carrito.length === 0) {
+    if (carrito.length === 0) {
         return { success: false, message: "No hay vehículos en el carrito" };
     }
-    
+
     const venta = {
         fecha: new Date().toISOString(),
         items: carrito,
         total: carrito.reduce((sum, auto) => sum + auto.precio, 0),
         financiacion: financiacion
     };
-    
+
     // Limpiar carrito
     carrito = [];
     financiacion = 0;
     guardarCarrito();
-    
+
     return { success: true, venta };
 }
 
