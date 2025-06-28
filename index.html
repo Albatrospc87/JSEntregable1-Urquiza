@@ -1,19 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador de Ford</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-    <h1>Simulador de ventas de vehículo</h1>
-    <p>Este simulador te permite ver modelos y financiación. Puedes agregar al carrito las cantidades y en diferentes 
-        formas de financiación
-    </p>
-    <p>¡Publica los modelos de vehículos que quieras a la financiación más conveniente!</p>
+    <header>
+        <h1>Simulador de ventas de vehículos Ford</h1>
+        <p>Este simulador te permite ver modelos y financiación. Puedes agregar al carrito las cantidades y en diferentes formas de financiación</p>
+    </header>
 
-    <script src="js/script.js"></script>
+    <main>
+        <section id="menu-principal">
+            <button id="btn-catalogo">Ver Catálogo</button>
+            <button id="btn-cotizar">Cotizar Vehículo</button>
+            <button id="btn-financiacion">Simular Financiación</button>
+            <button id="btn-carrito">Ver Carrito</button>
+            <button id="btn-finalizar">Finalizar Compra</button>
+        </section>
+
+        <section id="contenido-dinamico">
+            <!-- Aquí se mostrará el contenido dinámico -->
+        </section>
+    </main>
+
+    <footer>
+        <p>Concesionaria Ford - 2025</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/simulador.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/dom.js"></script>
+    <script src="js/main.js"></script>
 </body>
-
 </html>
