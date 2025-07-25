@@ -1,0 +1,71 @@
+{
+    "vehiculos": [
+        {
+            "id": 1,
+            "modelo": "Ford Fiesta",
+            "precio": 25000000,
+            "año": 2025,
+            "imagen": "fiesta.jpg",
+            "descripcion": "El Ford Fiesta 2025 combina diseño moderno con tecnología avanzada. Ideal para la ciudad con un consumo eficiente de combustible.",
+            "categoria": "hatchback",
+            "destacado": true,
+            "stock": 15,
+            "colores": ["Blanco", "Negro", "Rojo", "Azul"]
+        },
+        {
+            "id": 2,
+            "modelo": "Ford Focus",
+            "precio": 18000000,
+            "año": 2024,
+            "imagen": "focus.jpg",
+            "descripcion": "Focus 2024 con mayor espacio interior y sistema de infoentretenimiento SYNC 4.",
+            "categoria": "sedan",
+            "destacado": false,
+            "stock": 8,
+            "colores": ["Blanco", "Gris", "Azul"]
+        },
+        {
+            "id": 3,
+            "modelo": "Ford Ranger",
+            "precio": 35000000,
+            "año": 2025,
+            "imagen": "ranger.jpg",
+            "descripcion": "La pickup más vendida con capacidad off-road y tecnología de punta.",
+            "categoria": "pickup",
+            "destacado": true,
+            "stock": 5,
+            "colores": ["Blanco", "Negro", "Gris"]
+        },
+        {
+            "id": 4,
+            "modelo": "Ford Bronco",
+            "precio": 45000000,
+            "año": 2025,
+            "imagen": "bronco.jpg",
+            "descripcion": "Leyenda off-road renovada con capacidad extrema y diseño icónico.",
+            "categoria": "suv",
+            "destacado": true,
+            "stock": 3,
+            "colores": ["Rojo", "Azul", "Negro"]
+        },
+        {
+            "id": 5,
+            "modelo": "Ford Mustang Mach-E",
+            "precio": 52000000,
+            "año": 2025,
+            "imagen": "mustang-mach-e.jpg",
+            "descripcion": "El futuro eléctrico de Mustang con autonomía extendida y performance excepcional.",
+            "categoria": "electrico",
+            "destacado": true,
+            "stock": 6,
+            "colores": ["Gris", "Azul", "Blanco"]
+        }
+    ],
+    "categorias": [
+        {"id": "hatchback", "nombre": "Hatchback"},
+        {"id": "sedan", "nombre": "Sedán"},
+        {"id": "suv", "nombre": "SUV"},
+        {"id": "pickup", "nombre": "Pickup"},
+        {"id": "electrico", "nombre": "Eléctricos"}
+    ]
+}

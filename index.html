@@ -1,43 +1,86 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador de Ford</title>
+    <title>Ford Ecommerce - Concesionaria Oficial</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
-    <header>
-        <h1>Simulador de ventas de vehículos Ford</h1>
-        <p>Este simulador te permite ver modelos y financiación. Puedes agregar al carrito las cantidades y en
-            diferentes formas de financiación</p>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="img/logo.png" alt="Ford Logo">
+                <h1>Concesionaria Ford</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#" id="nav-inicio">Inicio</a></li>
+                    <li><a href="#" id="nav-productos">Vehículos</a></li>
+                    <li><a href="#" id="nav-contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="carrito-icono" id="carrito-icono">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="carrito-contador" id="carrito-contador">0</span>
+            </div>
+        </div>
     </header>
 
-    <main>
-        <section id="menu-principal">
-            <button id="btn-catalogo">Ver Catálogo</button>
-            <button id="btn-cotizar">Cotizar Vehículo</button>
-            <button id="btn-financiacion">Simular Financiación</button>
-            <button id="btn-carrito">Ver Carrito</button>
-            <button id="btn-finalizar">Finalizar Compra</button>
+   <main class="main container">
+        <section class="hero">
+            <h2>Descubre la nueva línea Ford 2025</h2>
+            <p>Financiación exclusiva con tasas preferenciales</p>
+            <button class="btn-primary" id="btn-explorar">Explorar modelos</button>
         </section>
 
         <section id="contenido-dinamico">
-            <!-- Aquí se mostrará el contenido dinámico -->
+            <!-- Contenido cargado dinámicamente -->
         </section>
     </main>
 
-    <footer>
-        <p>Concesionaria Ford - 2025</p>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-section">
+                <h3>Concesionaria Ford</h3>
+                <p>Venta de vehículos nuevos y usados</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-phone"></i> +54 11 1234-5678</p>
+                <p><i class="fas fa-envelope"></i> contacto@fordconcesionaria.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Horarios</h3>
+                <p>Lunes a Viernes: 9:00 - 18:00</p>
+                <p>Sábados: 9:00 - 13:00</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Concesionaria Ford. Todos los derechos reservados.</p>
+        </div>
     </footer>
 
+    <!-- Modal Carrito -->
+    <div class="modal" id="modal-carrito">
+        <div class="modal-contenido">
+            <span class="cerrar-modal">&times;</span>
+            <h2>Tu Carrito</h2>
+            <div id="carrito-contenido"></div>
+            <div class="carrito-acciones">
+                <button class="btn-secondary" id="vaciar-carrito">Vaciar Carrito</button>
+                <button class="btn-primary" id="finalizar-compra">Finalizar Compra</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
-    <script src="js/simulador.js"></script>
-    <script src="js/storage.js"></script>
-    <script src="js/dom.js"></script>
+    <script src="js/lib/sweetalert2.min.js"></script>
+    <script src="js/components/productos.js"></script>
+    <script src="js/components/carrito.js"></script>
+    <script src="js/components/ui.js"></script>
+    <script src="js/api.js"></script>
     <script src="js/main.js"></script>
 </body>
-
 </html>
